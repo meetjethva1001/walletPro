@@ -25,31 +25,50 @@
                 Get your wallet management at one place
             </div>
             <div class="expense-btn">
-                <button class="ex-btn">0 /-</button>
+                <button id="show-exp">Show Deposites</button>
+                <button id="show-dep">Show Expenses</button>
             </div>
         </div>
     </nav>
+    <button class="ex-btn">0 /-</button>
     <main>
         <div class="cards">
             <div class="card" style="width: 18rem;">
-                <img src="./deposite.jpeg" class="card-img-top" alt="..." width="100%">
+                <img src="./deposite.jpeg" class="card-img-top" alt="..." width="100%" height="150px">
                 <div class="card-body">
                     <h5 class="card-title" style="text-align: center; color: rgb(255, 255, 255); font-size: 20px;">
                         Deposite Money</h5>
                     <input type="number" placeholder="Enter deposite Amount!" class="dep-amt" id="dep-amt">
-                    <input type="text" placeholder="Add comment.." class="dep-amt">
+                    <input type="text" placeholder="Add comment.." class="dep-com" id="dep-comment">
                     <button id="btn-dep" href="#" class="btn-dep">Add Money <i class="fa-solid fa-plus"></i></button>
                 </div>
             </div>
             <div class="card" style="width: 18rem;">
-                <img src="./deposite.jpeg" class="card-img-top" alt="..." width="100%">
+                <img src="./expense.jpg" class="card-img-top" alt="..." width="100%" height="150px">
                 <div class="card-body">
                     <h5 class="card-title" style="text-align: center; color: rgb(255, 255, 255); font-size: 20px;"">Expenses</h5>
-                        <input type=" number" placeholder="Enter Expense Amount!" class="dep-amt">
-                        <input type="text" placeholder="Enter Expense Category" class="dep-amt">
-                        <button href="#" class="btn-dep">Withdraw </button>
+                        <input type="number" placeholder="Enter Expense Amount!" class="exp-amt" id="exp-amt">
+                        <input type="text" placeholder="Enter Expense Category" class="exp-amt" id="exp-cat">
+                        <button href="#" id="btn-exp">Withdraw </button>
+
                 </div>
             </div>
+        </div>
+        <div class="table-container" id="table-container">
+                <!-- <table>
+                    <thead>
+                        <th>Name</th>
+                        <th>Comments</th>
+                        <th>Amount</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>meet</td>
+                            <td>toll</td>
+                            <td>1200</td>
+                        </tr>
+                    </tbody>
+                </table> -->
         </div>
     </main>
 

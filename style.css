@@ -4,7 +4,7 @@
 }
 
 body {
-    font-family:"Playwrite NZ Basic";
+    font-family: "Playwrite NZ Basic";
     background-color: rgb(71, 68, 68);
 }
 
@@ -25,26 +25,41 @@ nav {
 }
 
 .expense-btn {
-    width: 8%;
+    width: 15%;
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .ex-btn {
+    width: 8%;
+    float: right;
+    margin: 1% 7%;
+    padding: 5px;
+    border-radius: 8px;
+    border: 2px solid rgb(85, 58, 58);
+    font-size: 1.2em;
+    color: white;
+    background-color: gray;
+}
+
+#show-exp , #show-dep{
     width: 100%;
     padding: 5px;
     border-radius: 8px;
     border: 2px solid rgb(214, 205, 205);
-    font-size: 1.2em;
+    font-size: 0.8em;
     color: white;
     background-color: transparent;
-    &:hover{
-        box-shadow: 0px 0px 50px rgb(112, 211, 233);
-        transition: all 0.6s;
-        transform: translateY(-2px);
+
+    &:hover {
         border-color: rgb(209, 174, 228);
         cursor: pointer;
     }
 }
-.cards{
+
+.cards {
     width: 45%;
     border-radius: 15px;
     margin: auto;
@@ -57,28 +72,38 @@ nav {
     margin-top: 5%;
     padding: 20px;
 }
-.card{
-    background-color: rgb(87,87,88);
+
+.card {
+    background-color: rgb(87, 87, 88);
     padding: 20px;
     border-radius: 7px;
-    /* box-shadow: 0px 0px 10px rgb(87,87,87); */
+    &:hover{
+        transform: translateY(-2px);
+    }
 }
-img{
+
+img {
     border-radius: 6px;
-    
+
 }
-.dep-amt{
+
+.dep-amt,
+#dep-comment,
+#exp-amt,
+#exp-cat {
     width: 95%;
     padding: 8px;
     border-radius: 10px;
-    box-shadow: 0px  0px 4px rgb(82, 80, 80);
+    box-shadow: 0px 0px 4px rgb(82, 80, 80);
     color: rgb(153, 153, 153);
     font-size: 18px;
     margin-top: 3%;
     border: none;
     background-color: rgb(50, 48, 48);
 }
-.btn-dep{
+
+.btn-dep,
+#btn-exp {
     padding: 11px;
     float: right;
     margin-top: 5%;
@@ -88,12 +113,38 @@ img{
     font-size: 17px;
     width: 100%;
     background-color: rgb(75, 45, 45);
-    &:hover{
+
+    &:hover {
         cursor: pointer;
         transform: translateY(-2px);
         transition: all 0.3s;
     }
 }
-.card{
-    d
+th,td{
+    padding: 2px;
+       border: 1px soli gray;
+}
+th{
+      color: rgb(33, 22, 22);
+       border: 1px solid gray;
+}
+td{
+    color: rgb(194, 189, 189);
+    overflow: auto;
+    text-align: center;
+    border: 1px solid gray;
+}
+table {
+    border: 1px solid grey;
+    width: 45%;
+    border-radius: 10px;
+    border: none;
+    border-color: gray;
+}
+.table-container , #table-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2%;
+    width: 100%;
 }
