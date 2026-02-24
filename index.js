@@ -10,7 +10,9 @@ function getName() {
 const element = document.getElementById("username");
 const btnDep = document.getElementById("btn-dep");
 const btnExp = document.getElementById("btn-exp");
+const showDep = document.getElementById("show-dep");
 const showExp = document.getElementById("show-exp");
+//validation name
 if (!element) {
     console.error("Element with id 'username' not found.");
 }
@@ -23,6 +25,7 @@ else {
 const userData = [];
 const expenseData = [];
 let balance = 0;
+//Deposite Amount function
 const depositeAmount = () => {
     const max_amt = 1000000000;
     const input = document.getElementById("dep-amt");
@@ -43,7 +46,6 @@ const depositeAmount = () => {
     else {
         balance += amount;
         display.textContent = `${balance}/-`;
-        console.log(`Total: ${balance} | Note: ${depCom.value} | name : ${userResponse}`);
         userData.push({
             name: userResponse,
             balance: amount,
@@ -61,6 +63,7 @@ const depositeAmount = () => {
     }
 };
 btnDep.addEventListener("click", depositeAmount);
+//Expense Function
 function Expenses() {
     const max_amt = 1000000000;
     const expAmt = document.getElementById("exp-amt");
@@ -100,13 +103,9 @@ function Expenses() {
     }
 }
 btnExp.addEventListener("click", Expenses);
-function getUserData() {
-    let userData = localStorage.getItem("userData");
-    console.log(userData);
-}
-showExp.addEventListener("click", showDeposites);
+//display Diposites
 function showDeposites() {
-    const tableCon = document.getElementById("table-container");
+    const tableCon = document.getElementById("table-deposite");
     if (!tableCon)
         return;
     tableCon.innerHTML = "";
@@ -120,18 +119,77 @@ function showDeposites() {
         </tr>
     `;
     const tbody = document.createElement("tbody");
-    userData.length != 0 ? userData.forEach((transaction) => {
-        const row = document.createElement("tr");
-        row.innerHTML = `
-            <td>${transaction.name}</td>
-            <td>${transaction.comment}</td>
-            <td>${transaction.balance}</td>
-        `;
-        tbody.appendChild(row);
-    }) : alert("No deposite found!!");
-    table.appendChild(thead);
-    table.appendChild(tbody);
-    tableCon.appendChild(table);
+    if (userData.length > 0) {
+        userData.forEach((transaction) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${transaction.name}</td>
+                <td>${transaction.comment}</td>
+                <td>${transaction.balance}</td>
+            `;
+            tbody.appendChild(row);
+        });
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        tableCon.appendChild(table);
+    }
+    else {
+        alert("Deposite not found!!");
+    }
 }
+showDep.addEventListener("click", showDeposites);
+let reapeat = false;
+//Dsiplay expenses
+function showExpenses() {
+    console.log("hit");
+    const sortingButton = document.getElementById("expense-btn");
+    const tableCon = document.getElementById("table-withdrawal");
+    if (!tableCon)
+        return;
+    tableCon.innerHTML = "";
+    const table = document.createElement("table");
+    const thead = document.createElement("thead");
+    thead.innerHTML = `
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Expenses</th>
+        </tr>
+    `;
+    const tbody = document.createElement("tbody");
+    if (expenseData.length > 0) {
+        expenseData.forEach((transaction) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${transaction.name}</td>
+                <td>${transaction.category}</td>
+                <td>${transaction.amount}</td>
+            `;
+            tbody.appendChild(row);
+        });
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        tableCon.appendChild(table);
+        if (!reapeat) {
+            const sortingBtn = document.createElement("button");
+            sortingBtn.className = "sorting-btn";
+            sortingBtn.textContent = "Sortiing";
+            sortingButton.appendChild(sortingBtn);
+            sortingBtn.addEventListener("click", filteringExpensesByCategory);
+            reapeat = true;
+            console.log(reapeat);
+        }
+    }
+    else {
+        alert("Expenses not found!!");
+    }
+}
+showExp.addEventListener("click", showExpenses);
+//filter expense by category..
+const filteringExpensesByCategory = () => {
+    const userChoiceCategory = prompt("Enter the category");
+    const filterExpenses = expenseData.filter((fil) => { fil.category === userChoiceCategory; });
+    console.log(filterExpenses);
+};
 export {};
 //# sourceMappingURL=index.js.map

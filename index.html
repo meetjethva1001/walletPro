@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap"
         rel="stylesheet">
-</head>
+</head> 
 
 <body>
     <nav class="container">
@@ -24,13 +24,15 @@
             <div class="name" id="name" style="color:  rgb(255, 255, 255);">
                 Get your wallet management at one place
             </div>
-            <div class="expense-btn">
-                <button id="show-exp">Show Deposites</button>
-                <button id="show-dep">Show Expenses</button>
+            <div class="expense-btn" id="expense-btn">
+                <button id="show-dep">Deposites</button>
+                <button id="show-exp">Expenses</button>
             </div>
         </div>
     </nav>
-    <button class="ex-btn">0 /-</button>
+    <div style="display: flex; justify-content: end;">
+        <button class="ex-btn">0 /-</button>
+    </div>
     <main>
         <div class="cards">
             <div class="card" style="width: 18rem;">
@@ -54,21 +56,39 @@
                 </div>
             </div>
         </div>
-        <div class="table-container" id="table-container">
-                <!-- <table>
-                    <thead>
-                        <th>Name</th>
-                        <th>Comments</th>
-                        <th>Amount</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>meet</td>
-                            <td>toll</td>
-                            <td>1200</td>
-                        </tr>
-                    </tbody>
-                </table> -->
+        <div class="table-container">
+            <div class="table-deposite" id="table-deposite">
+                    <!-- <table>
+                        <thead>
+                            <th>Name</th>
+                            <th>Comments</th>
+                            <th>Amount</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>meet</td>
+                                <td>toll</td>
+                                <td>1200</td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+            </div>
+            <div class="table-withdrawal" id="table-withdrawal">
+                 <!-- <table>
+                        <thead>
+                            <th>Name</th>
+                            <th>Comments</th>
+                            <th>Amount</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>meet</td>
+                                <td>toll</td>
+                                <td>1200</td>
+                            </tr>
+                        </tbody>
+                    </table> -->
+            </div>
         </div>
     </main>
 
