@@ -1,3 +1,4 @@
+"use strict";
 let userResponse = prompt("Enter your name:");
 getName();
 function getName() {
@@ -239,5 +240,4 @@ const filteringExpensesByCategory = () => {
         console.log(filterTable);
     }
 };
-export {};
 //# sourceMappingURL=index.js.map
