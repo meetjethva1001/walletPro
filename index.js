@@ -141,23 +141,22 @@ showDep.addEventListener("click", showDeposites);
 let reapeat = false;
 //Dsiplay expenses
 function showExpenses() {
-    console.log("hit");
     const sortingButton = document.getElementById("expense-btn");
     const tableCon = document.getElementById("table-withdrawal");
     if (!tableCon)
         return;
-    tableCon.innerHTML = "";
-    const table = document.createElement("table");
-    const thead = document.createElement("thead");
-    thead.innerHTML = `
+    if (expenseData.length > 0) {
+        tableCon.innerHTML = "";
+        const table = document.createElement("table");
+        const thead = document.createElement("thead");
+        thead.innerHTML = `
         <tr>
             <th>Name</th>
             <th>Category</th>
             <th>Expenses</th>
         </tr>
     `;
-    const tbody = document.createElement("tbody");
-    if (expenseData.length > 0) {
+        const tbody = document.createElement("tbody");
         expenseData.forEach((transaction) => {
             const row = document.createElement("tr");
             row.innerHTML = `
@@ -173,7 +172,7 @@ function showExpenses() {
         if (!reapeat) {
             const sortingBtn = document.createElement("button");
             sortingBtn.className = "sorting-btn";
-            sortingBtn.textContent = "Sortiing";
+            sortingBtn.textContent = "Filter";
             sortingButton.appendChild(sortingBtn);
             sortingBtn.addEventListener("click", filteringExpensesByCategory);
             reapeat = true;
@@ -185,11 +184,60 @@ function showExpenses() {
     }
 }
 showExp.addEventListener("click", showExpenses);
+let isReapeat = false;
 //filter expense by category..
 const filteringExpensesByCategory = () => {
     const userChoiceCategory = prompt("Enter the category");
-    const filterExpenses = expenseData.filter((fil) => { fil.category === userChoiceCategory; });
-    console.log(filterExpenses);
+    const filterExpenses = expenseData.filter((fil) => fil.category === userChoiceCategory);
+    if (filterExpenses.length <= 0)
+        return alert("Expense Category not found!");
+    const tableContainer = document.getElementById("table-container");
+    if (!isReapeat) {
+        const tableFilter = document.createElement("div");
+        tableFilter.className = "table-filter";
+        tableFilter.id = "table-filter";
+        tableFilter.innerHTML = "";
+        tableContainer.appendChild(tableFilter);
+        const table = document.createElement('table');
+        table.id = 'ex-table';
+        const thead = document.createElement('thead');
+        thead.innerHTML = `
+            <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Expenses</th>
+            </tr>
+        `;
+        const tbody = document.createElement("tbody");
+        filterExpenses.forEach((transaction) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                    <td>${transaction.name}</td>
+                    <td>${transaction.category}</td>
+                    <td>${transaction.amount}</td>
+                `;
+            tbody.appendChild(row);
+        });
+        table.appendChild(thead);
+        table.appendChild(tbody);
+        tableFilter.appendChild(table);
+        isReapeat = true;
+    }
+    else {
+        const filterTable = document.getElementById("ex-table");
+        const tbody = filterTable.querySelector("tbody");
+        tbody.innerHTML = "";
+        filterExpenses.forEach((transaction) => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                    <td>${transaction.name}</td>
+                    <td>${transaction.category}</td>
+                    <td>${transaction.amount}</td>
+                `;
+            tbody.appendChild(row);
+        });
+        console.log(filterTable);
+    }
 };
 export {};
 //# sourceMappingURL=index.js.map

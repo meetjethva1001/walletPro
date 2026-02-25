@@ -33,9 +33,9 @@ nav {
 }
 
 .ex-btn {
-    width: 8%;
+    width: 6%;
     /* float: right; */
-    margin: 1% 7%;
+    margin: 1% 10%;
     padding: 5px;
     border-radius: 8px;
     border: 2px solid rgb(85, 58, 58);
@@ -56,6 +56,8 @@ nav {
     &:hover {
         border-color: rgb(209, 174, 228);
         cursor: pointer;
+        transform: scale(1.1);
+        transition: all 0.4s;
     }
 }
 
@@ -69,7 +71,7 @@ nav {
     gap: 20px;
     align-items: center;
     justify-content: space-around;
-    margin-top: 5%;
+    margin-top: -2%;
     padding: 20px;
 }
 
@@ -142,7 +144,8 @@ table {
     border-color: gray;
 }
 .table-deposite , #table-deposite ,
-#table-withdrawal , .table-withdrawal
+#table-withdrawal , .table-withdrawal,
+#table-filter , .table-filter
 {
     display: flex;
     align-items: center;
@@ -151,8 +154,9 @@ table {
     width: 75%;
 }
 .table-container{
-    height: 36vh;
+    height: 45vh;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    overflow: auto;
+    align-items:first baseline;
+    justify-content: space-around;
 }
