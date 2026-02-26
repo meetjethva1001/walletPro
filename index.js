@@ -51,13 +51,13 @@ const depositeAmount = () => {
             balance: amount,
             comment: depCom.value
         });
-        const existing = JSON.parse(localStorage.getItem("userData") || "[]");
-        existing.push({
-            name: userResponse,
-            balance: amount,
-            comment: depCom.value
-        });
-        localStorage.setItem("userData", JSON.stringify(existing));
+        // const existing = JSON.parse(localStorage.getItem("userData") || "[]");
+        // existing.push({
+        //     name: userResponse,
+        //     balance: amount,
+        //     comment: depCom.value
+        // });
+        // localStorage.setItem("userData", JSON.stringify(existing));
         input.value = "";
         depCom.value = "";
     }
@@ -91,13 +91,13 @@ function Expenses() {
             category: expCat.value,
             name: userResponse
         });
-        const existing = JSON.parse(localStorage.getItem("expenseData") || "[]");
-        existing.push({
-            amount: amount,
-            category: expCat.value,
-            name: userResponse
-        });
-        localStorage.setItem("expenseData", JSON.stringify(existing));
+        // const existing = JSON.parse(localStorage.getItem("expenseData") || "[]");
+        // existing.push({
+        //     amount: amount,
+        //     category: expCat.value,
+        //     name: userResponse
+        // });
+        // localStorage.setItem("expenseData", JSON.stringify(existing));
         expAmt.value = "";
         expCat.value = "";
     }
