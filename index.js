@@ -80,6 +80,7 @@ function Expenses() {
         alert("Insufficient Balance!!");
         expAmt.value = "";
         expCat.value = "";
+        return;
     }
     if (expCat.value === "")
         return alert("Enter the Category");
@@ -176,7 +177,6 @@ function showExpenses() {
             sortingButton.appendChild(sortingBtn);
             sortingBtn.addEventListener("click", filteringExpensesByCategory);
             reapeat = true;
-            console.log(reapeat);
         }
     }
     else {
@@ -236,7 +236,6 @@ const filteringExpensesByCategory = () => {
                 `;
             tbody.appendChild(row);
         });
-        console.log(filterTable);
     }
 };
 export {};

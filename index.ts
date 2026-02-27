@@ -108,7 +108,8 @@ function Expenses(): void {
     if (amount > balance) {
         alert("Insufficient Balance!!");
         expAmt.value = ""
-        expCat.value = "";
+        expCat.value = ""
+        return;
     }
     if (expCat.value === "") return alert("Enter the Category");
 
@@ -227,7 +228,6 @@ function showExpenses(): void {
             sortingButton.appendChild(sortingBtn)
             sortingBtn.addEventListener("click", filteringExpensesByCategory)
             reapeat = true;
-            console.log(reapeat)
         }
     } else { alert("Expenses not found!!") }
 }
@@ -290,7 +290,6 @@ const filteringExpensesByCategory = (): void => {
                 `;
             tbody.appendChild(row);
         })
-        console.log(filterTable)
     }
 }
 
