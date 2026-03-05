@@ -1,12 +1,12 @@
-let userResponse = prompt("Enter your name:");
-getName();
-function getName() {
+const getName = () => {
     if (!userResponse || userResponse.trim() === "") {
         alert("Enter valid name");
         userResponse = 'Guest';
         return;
     }
-}
+};
+let userResponse = prompt("Enter your name:");
+getName();
 const element = document.getElementById("username");
 const btnDep = document.getElementById("btn-dep");
 const btnExp = document.getElementById("btn-exp");
@@ -64,7 +64,7 @@ const depositeAmount = () => {
 };
 btnDep.addEventListener("click", depositeAmount);
 //Expense Function
-function Expenses() {
+const expensesAmount = () => {
     const max_amt = 1000000000;
     const expAmt = document.getElementById("exp-amt");
     const expCat = document.getElementById("exp-cat");
@@ -102,10 +102,10 @@ function Expenses() {
         expAmt.value = "";
         expCat.value = "";
     }
-}
-btnExp.addEventListener("click", Expenses);
+};
+btnExp.addEventListener("click", expensesAmount);
 //display Diposites
-function showDeposites() {
+const showDeposites = () => {
     const tableCon = document.getElementById("table-deposite");
     if (!tableCon)
         return;
@@ -137,11 +137,11 @@ function showDeposites() {
     else {
         alert("Deposite not found!!");
     }
-}
+};
 showDep.addEventListener("click", showDeposites);
-let reapeat = false;
+let reapeatCount = 1;
 //Dsiplay expenses
-function showExpenses() {
+const showExpenses = () => {
     const sortingButton = document.getElementById("expense-btn");
     const tableCon = document.getElementById("table-withdrawal");
     if (!tableCon)
@@ -170,21 +170,21 @@ function showExpenses() {
         table.appendChild(thead);
         table.appendChild(tbody);
         tableCon.appendChild(table);
-        if (!reapeat) {
+        if (reapeatCount === 1) {
             const sortingBtn = document.createElement("button");
             sortingBtn.className = "sorting-btn";
             sortingBtn.textContent = "Filter";
             sortingButton.appendChild(sortingBtn);
             sortingBtn.addEventListener("click", filteringExpensesByCategory);
-            reapeat = true;
+            reapeatCount++;
         }
     }
     else {
         alert("Expenses not found!!");
     }
-}
+};
 showExp.addEventListener("click", showExpenses);
-let isReapeat = false;
+let isRepeat = false;
 //filter expense by category..
 const filteringExpensesByCategory = () => {
     const userChoiceCategory = prompt("Enter the category");
@@ -192,7 +192,7 @@ const filteringExpensesByCategory = () => {
     if (filterExpenses.length <= 0)
         return alert("Expense Category not found!");
     const tableContainer = document.getElementById("table-container");
-    if (!isReapeat) {
+    if (!isRepeat) {
         const tableFilter = document.createElement("div");
         tableFilter.className = "table-filter";
         tableFilter.id = "table-filter";
@@ -221,7 +221,7 @@ const filteringExpensesByCategory = () => {
         table.appendChild(thead);
         table.appendChild(tbody);
         tableFilter.appendChild(table);
-        isReapeat = true;
+        isRepeat = true;
     }
     else {
         const filterTable = document.getElementById("ex-table");

@@ -1,14 +1,14 @@
-let userResponse: string | null = prompt("Enter your name:");
-getName();
-
-function getName() {
+const getName = () :void => {
     if (!userResponse || userResponse.trim() === "") {
         alert("Enter valid name");
         userResponse = 'Guest';
         return;
     }
-
+    
 }
+
+let userResponse: string | null = prompt("Enter your name:");
+getName();
 
 const element = document.getElementById("username");
 const btnDep = document.getElementById("btn-dep") as HTMLButtonElement;
@@ -91,7 +91,7 @@ const depositeAmount = (): void => {
 btnDep.addEventListener("click", depositeAmount);
 
 //Expense Function
-function Expenses(): void {
+const expensesAmount = (): void => {
     const max_amt = 1_000_000_000;
     const expAmt = document.getElementById("exp-amt") as HTMLInputElement;
     const expCat = document.getElementById("exp-cat") as HTMLInputElement;
@@ -113,7 +113,7 @@ function Expenses(): void {
     }
     if (expCat.value === "") return alert("Enter the Category");
 
-    else {
+    else { 
         balance -= amount
         display.textContent = `${balance}/-`
         expenseData.push({
@@ -136,11 +136,11 @@ function Expenses(): void {
         expCat.value = "";
     }
 }
-btnExp.addEventListener("click", Expenses);
+btnExp.addEventListener("click", expensesAmount);
 
 
 //display Diposites
-function showDeposites(): void {
+const showDeposites = (): void =>{
     const tableCon = document.getElementById("table-deposite");
     if (!tableCon) return;
 
@@ -180,9 +180,9 @@ function showDeposites(): void {
 showDep.addEventListener("click", showDeposites)
 
 
-let reapeat = false
+let reapeatCount = 1;
 //Dsiplay expenses
-function showExpenses(): void {
+const showExpenses =  (): void =>{
     const sortingButton = document.getElementById("expense-btn") as HTMLDivElement;
     const tableCon = document.getElementById("table-withdrawal");
     if (!tableCon) return;
@@ -221,20 +221,20 @@ function showExpenses(): void {
         table.appendChild(tbody);
         tableCon.appendChild(table);
 
-        if (!reapeat) {
+        if (reapeatCount === 1) {
             const sortingBtn = document.createElement("button");
             sortingBtn.className = "sorting-btn";
             sortingBtn.textContent = "Filter";
             sortingButton.appendChild(sortingBtn)
             sortingBtn.addEventListener("click", filteringExpensesByCategory)
-            reapeat = true;
+            reapeatCount++;
         }
     } else { alert("Expenses not found!!") }
 }
 showExp.addEventListener("click", showExpenses)
 
 
-let isReapeat = false;
+let isRepeat = false;
 //filter expense by category..
 const filteringExpensesByCategory = (): void => {
     const userChoiceCategory = prompt("Enter the category");
@@ -243,7 +243,7 @@ const filteringExpensesByCategory = (): void => {
     if (filterExpenses.length <= 0) return alert("Expense Category not found!")
     const tableContainer = document.getElementById("table-container") as HTMLDivElement;
 
-    if (!isReapeat) {
+    if (!isRepeat) {
         const tableFilter = document.createElement("div");
         tableFilter.className = "table-filter";
         tableFilter.id = "table-filter"
@@ -275,7 +275,7 @@ const filteringExpensesByCategory = (): void => {
         table.appendChild(thead);
         table.appendChild(tbody);
         tableFilter.appendChild(table);
-        isReapeat = true;
+        isRepeat = true;
     }
     else {
         const filterTable = document.getElementById("ex-table") as HTMLTableElement;

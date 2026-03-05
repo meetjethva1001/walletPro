@@ -124,11 +124,11 @@ img {
 }
 th,td{
     padding: 2px;
-       border: 1px soli gray;
+    border: 1px solid gray;
 }
 th{
-      color: rgb(33, 22, 22);
-       border: 1px solid gray;
+    color: rgb(33, 22, 22);
+    border: 1px solid gray;
 }
 td{
     color: rgb(194, 189, 189);
