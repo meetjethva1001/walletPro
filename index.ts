@@ -248,7 +248,7 @@ const filteringExpensesByCategory = (): void => {
         tableFilter.className = "table-filter";
         tableFilter.id = "table-filter"
 
-        tableFilter.innerHTML = ""
+        tableFilter.innerHTML = "";
 
         tableContainer.appendChild(tableFilter);
         const table = document.createElement('table');
@@ -259,7 +259,7 @@ const filteringExpensesByCategory = (): void => {
                 <th>Name</th>
                 <th>Category</th>
                 <th>Expenses</th>
-            </tr>
+            </tr>      
         `
         const tbody = document.createElement("tbody");
         filterExpenses.forEach((transaction) => {
