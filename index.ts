@@ -43,7 +43,7 @@ const expenseData: Expense[] = [];
 
 let balance: number = 0;
 
-//Deposite Amount function
+//deposite Amount function
 const depositeAmount = (): void => {
     const max_amt = 1_000_000_000;
     const input = document.getElementById("dep-amt") as HTMLInputElement;
@@ -139,7 +139,7 @@ const expensesAmount = (): void => {
 btnExp.addEventListener("click", expensesAmount);
 
 
-//display Diposites
+//display deposites
 const showDeposites = (): void =>{
     const tableCon = document.getElementById("table-deposite");
     if (!tableCon) return;
@@ -180,7 +180,7 @@ const showDeposites = (): void =>{
 showDep.addEventListener("click", showDeposites)
 
 
-let reapeatCount = 1;
+let repeatCount = 1;
 //Dsiplay expenses
 const showExpenses =  (): void =>{
     const sortingButton = document.getElementById("expense-btn") as HTMLDivElement;
@@ -221,13 +221,13 @@ const showExpenses =  (): void =>{
         table.appendChild(tbody);
         tableCon.appendChild(table);
 
-        if (reapeatCount === 1) {
+        if (repeatCount === 1) {
             const sortingBtn = document.createElement("button");
             sortingBtn.className = "sorting-btn";
             sortingBtn.textContent = "Filter";
             sortingButton.appendChild(sortingBtn)
             sortingBtn.addEventListener("click", filteringExpensesByCategory)
-            reapeatCount++;
+            repeatCount++;
         }
     } else { alert("Expenses not found!!") }
 }
