@@ -25,7 +25,7 @@ else {
 const userData = [];
 const expenseData = [];
 let balance = 0;
-//Deposite Amount function
+//deposite Amount function
 const depositeAmount = () => {
     const max_amt = 1000000000;
     const input = document.getElementById("dep-amt");
@@ -104,7 +104,7 @@ const expensesAmount = () => {
     }
 };
 btnExp.addEventListener("click", expensesAmount);
-//display Diposites
+//display deposites
 const showDeposites = () => {
     const tableCon = document.getElementById("table-deposite");
     if (!tableCon)
@@ -139,7 +139,7 @@ const showDeposites = () => {
     }
 };
 showDep.addEventListener("click", showDeposites);
-let reapeatCount = 1;
+let repeatCount = 1;
 //Dsiplay expenses
 const showExpenses = () => {
     const sortingButton = document.getElementById("expense-btn");
@@ -170,13 +170,13 @@ const showExpenses = () => {
         table.appendChild(thead);
         table.appendChild(tbody);
         tableCon.appendChild(table);
-        if (reapeatCount === 1) {
+        if (repeatCount === 1) {
             const sortingBtn = document.createElement("button");
             sortingBtn.className = "sorting-btn";
             sortingBtn.textContent = "Filter";
             sortingButton.appendChild(sortingBtn);
             sortingBtn.addEventListener("click", filteringExpensesByCategory);
-            reapeatCount++;
+            repeatCount++;
         }
     }
     else {
@@ -206,7 +206,7 @@ const filteringExpensesByCategory = () => {
                 <th>Name</th>
                 <th>Category</th>
                 <th>Expenses</th>
-            </tr>
+            </tr>      
         `;
         const tbody = document.createElement("tbody");
         filterExpenses.forEach((transaction) => {
